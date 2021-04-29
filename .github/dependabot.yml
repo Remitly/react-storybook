@@ -1,0 +1,29 @@
+version: 2
+registries:
+  npm-registry-npm-int-remitly-com:
+    type: npm-registry
+    url: https://npm.int.remitly.com
+    token: "${{secrets.NPM_REGISTRY_NPM_INT_REMITLY_COM_TOKEN}}"
+
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "15:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: lodash-es
+    versions:
+    - 4.17.20
+  - dependency-name: react-modal
+    versions:
+    - 3.12.1
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: json5
+    versions:
+    - 2.1.3
+  registries:
+  - npm-registry-npm-int-remitly-com
